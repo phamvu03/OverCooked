@@ -2,15 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClearCounter : MonoBehaviour
+public class ClearCounter : BaseCounter
 {
-    [SerializeField] private Transform tomatoPrefab;
-    [SerializeField] private Transform counterTopPoin;
+    [SerializeField] private KitchenObjectSO kitchenObjectSO;
 
-    public void Interact()
+    public override void Interact(Player player)
     {
-        Debug.Log("Interact");
-        Transform tomatoTransform = Instantiate(tomatoPrefab, counterTopPoin);
-        tomatoTransform.localPosition = Vector3.zero;
+        if (!HasKitchenObject())
+        { 
+            // Khong co KitchenObject
+            if (player.HasKitchenObject())
+            {
+                //Player dang cam object
+                player.GetKitchenObject().SetKitchenObjectParent(this);
+            }
+            else
+            {
+                //Player khong cam gi
+            }
+
+        } 
+        else
+        {
+            //Co KitchenObject 
+            if (player.HasKitchenObject())
+            {
+                //Player dang cam Object
+
+            }
+            else
+            {
+                //Player khong cam gi
+                GetKitchenObject().SetKitchenObjectParent(player);
+            }
+        }
     }
 }
