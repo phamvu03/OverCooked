@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counterTopPoin: {fileID: 4461709997777465265}
-  kitchenObjectSO: {fileID: 11400000, guid: e26349aca6a385e40b47a1d67c4efd15, type: 2}
+  kitchenObjectSO: {fileID: 11400000, guid: e341641127014304a98ab61f878748ac, type: 2}
 --- !u!1001 &6656002225813964612
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -147,6 +147,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4841286013473667211, guid: 9a9137fa2b035d34e881701d2c178192, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 91e8fe3de9249fc44b7bdd8050062896, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
