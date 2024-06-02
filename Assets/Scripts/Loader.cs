@@ -11,7 +11,7 @@ public static class Loader
     {
         MainMenuScence, 
         GameScence, 
-        LoadingScence,
+        LoadingScence
     }
 
     private static Scence targetScence;
@@ -22,7 +22,7 @@ public static class Loader
 
         SceneManager.LoadScene(Scence.LoadingScence.ToString());
 
-        
+       
     }
 
     public static void LoaderCallBack()
