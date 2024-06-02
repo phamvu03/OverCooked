@@ -10,6 +10,7 @@ public class OptionsUI : MonoBehaviour
     public static OptionsUI Instance {  get; private set; }
 
     [SerializeField] private Button musicButton;
+    [SerializeField] private Button soundEffectsButton;
     [SerializeField] private Button closeButton;
     [SerializeField] private Button moveUpButton;
     [SerializeField] private Button moveDownButton;
@@ -19,6 +20,7 @@ public class OptionsUI : MonoBehaviour
     [SerializeField] private Button interactAlternateButton;
     [SerializeField] private Button pauseButton;
     [SerializeField] private TextMeshProUGUI musicText;
+    [SerializeField] private TextMeshProUGUI soundEffectsText;
     [SerializeField] private TextMeshProUGUI moveUpText;
     [SerializeField] private TextMeshProUGUI moveDownText;
     [SerializeField] private TextMeshProUGUI moveLeftText;
@@ -35,6 +37,11 @@ public class OptionsUI : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        soundEffectsButton.onClick.AddListener(() =>
+        {
+            SoundManager.Instance.ChangeVolume();
+            UpdateVisual();
+        });
         musicButton.onClick.AddListener(() =>
         {
             MusicManager.Instance.ChangeVolume();
@@ -92,6 +99,7 @@ public class OptionsUI : MonoBehaviour
 
     private void UpdateVisual()
     {
+        soundEffectsText.text = "Sound Effects: " + Mathf.Round(SoundManager.Instance.GetVolume() * 10f);
         musicText.text = "Music: " +  Mathf.Round(MusicManager.Instance.GetVolume() * 10f);
 
         moveUpText.text = GameInput.Instance.GetBindingText(GameInput.Binding.Move_Up);
